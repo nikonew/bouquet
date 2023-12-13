@@ -39,10 +39,10 @@ window.addEventListener("DOMContentLoaded", () => {
   // Ваш код...
   const AUTHORIZATION = 'Basic hS2sfS44wcl1sa2j';
   const END_POINT = 'https://grading.objects.pages.academy';
-  
+
   const catalogueModel = new CatalogueModel(
     {catalogueApiService: new CatalogueApiService(END_POINT, AUTHORIZATION)})
-  
+
   const wrapperElement = document.querySelector('.wrapper');
   const mainElement = wrapperElement.querySelector('main')
   const presenter = new Presenter({
@@ -51,6 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   presenter.init()
+  catalogueModel.init()
 
 });
 

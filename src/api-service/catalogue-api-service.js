@@ -16,7 +16,7 @@ export default class CatalogueApiService extends ApiService {
 
   async updateCatalogue(catalogue) {
     const response = await this._load({
-      url: `products${catalogue.id}`,
+      url: `flowers-shop/products${catalogue.id}`,
       method: Method.PUT,
       body: JSON.stringify(catalogue),
       headers: new Headers({'Content-Type': 'application/json'}),

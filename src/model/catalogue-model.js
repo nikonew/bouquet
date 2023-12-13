@@ -1,5 +1,4 @@
 import {UpdateType} from '../const.js';
-import CatalogueApiService from '../api-service/catalogue-api-service.js';
 import Observable from '../framework/observable.js';
 
 export default class CatalogueModel extends Observable {
@@ -17,13 +16,12 @@ export default class CatalogueModel extends Observable {
 
   async init() {
     try {
-      const catalogue = await this.#catalogueApiService.catalogue;
-      this.#catalogue = catalogue;
+      this.#catalogue = await this.#catalogueApiService.catalogue;
     } catch(err) {
       this.#catalogue = [];
     }
 
-    this._notify(UpdateType.INIT);
+    this._notify(UpdateType.INIT, this.#catalogue);
   }
 
   async updateCatalogue(updateType, update) {
