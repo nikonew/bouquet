@@ -23,7 +23,7 @@ const flowers = [
     "type": "birthday",
     "color": "red",
     "price": 5800,
-    "previewImage": `img/items/${getRandomArrayElement(POSTERS)}`,
+    "previewImage": `markup/img/items/${getRandomArrayElement(POSTERS)}`,
     "authorPhoto": "Christie Kim"
   },
   {
@@ -33,7 +33,7 @@ const flowers = [
     "type": "birthday",
     "color": "red",
     "price": 5800,
-    'previewImage': `img/items/${getRandomArrayElement(POSTERS)}`,
+    'previewImage': `markup/img/items/${getRandomArrayElement(POSTERS)}`,
     "authorPhoto": "Christie Kim"
   }
 ]
