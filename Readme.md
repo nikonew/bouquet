@@ -1,8 +1,8 @@
-# Проект «{{projectTitle}}»
+# Проект «{{bouquet}}»
 
-* Студент: [{{userName}}]({{userProfile}}).
+* Студент: [{{https://github.com/nikonew}}]({{userProfile}}).
 
----
+---  16часов 37минут
 
 _Не удаляйте и не изменяйте папки и файлы:_
 _`.editorconfig`, `.gitattributes`._

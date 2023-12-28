@@ -17,7 +17,7 @@ export default class AbstractView {
   /** @type {Object} Объект с колбэками. Может использоваться для хранения обработчиков событий */
   _callback = {};
 
-  constructor() {
+    constructor() {
     if (new.target === AbstractView) {
       throw new Error('Can\'t instantiate AbstractView, only concrete one.');
     }

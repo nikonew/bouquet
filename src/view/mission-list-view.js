@@ -21,7 +21,11 @@ function createMissionList () {
 }
 
 
-export default class MissionList extends AbstractView {
+export default class MissionListView extends AbstractView {
+
+  constructor() {
+    super();
+  }
 
   get template () {
     return createMissionList()

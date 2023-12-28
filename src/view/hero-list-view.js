@@ -21,7 +21,11 @@ function createHeroList () {
 }
 
 
-export default class HeroList extends AbstractView {
+export default class HeroListView extends AbstractView {
+
+  constructor() {
+    super();
+  }
 
   get template() {
     return createHeroList();

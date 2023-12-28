@@ -10,9 +10,6 @@ export default class CatalogueModel extends Observable {
     this.#catalogueApiService = catalogueApiService;
   }
 
-  get catalogue() {
-    return this.#catalogue;
-  }
 
   async init() {
     try {

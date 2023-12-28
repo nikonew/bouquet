@@ -36,7 +36,11 @@ return `<section class="advantages">
         </section>`
 }
 
-export default class AdvantagesList extends AbstractView {
+export default class AdvantagesListView extends AbstractView {
+
+  constructor() {
+    super();
+  }
 
   get template() {
     return createAdvantagesList();

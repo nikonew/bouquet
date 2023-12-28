@@ -38,7 +38,11 @@ function createFilterReasonList () {
 }
 
 
-export default class FilterReasonList extends AbstractView {
+export default class FilterReasonListView extends AbstractView {
+
+  constructor() {
+    super();
+  }
 
   get template () {
     return createFilterReasonList()

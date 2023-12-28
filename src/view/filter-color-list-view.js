@@ -55,7 +55,11 @@ function createFilterColorList (){
         </section>`
 }
 
-export default class FilterColorList extends AbstractView {
+export default class FilterColorListView extends AbstractView {
+
+  constructor() {
+    super();
+  }
 
 
   get template () {

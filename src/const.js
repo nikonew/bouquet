@@ -4,3 +4,9 @@ export const UpdateType = {
   MAJOR: 'MAJOR',
   INIT: 'INIT',
 };
+
+
+export const Mode = {
+  GALLERY: 'GALLERY',
+  POPUP: 'POPUP'
+};
