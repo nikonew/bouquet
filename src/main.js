@@ -45,15 +45,17 @@ window.addEventListener("DOMContentLoaded", async () => {
     {catalogueApiService: new CatalogueApiService(END_POINT, AUTHORIZATION)})
   const flowersModel = new FlowersModel()
 
-  const modalAnchor = document.querySelector('.modal__content');
+
+  const modalWrapper = document.querySelector('.modal__wrapper');
+  const modalContent = modalWrapper.querySelector('.modal__content');
+  const modalProduct = modalContent.querySelector('.modal-product')
   const wrapperElement = document.querySelector('.wrapper');
   const mainElement = wrapperElement.querySelector('main')
   const presenter = new Presenter({
-    container: mainElement, catalogueModel, flowersModel, modalAnchor
+    container: mainElement, catalogueModel, flowersModel, modalProduct
   });
 
 presenter.init()
-
 
 
 });

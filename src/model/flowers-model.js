@@ -23,7 +23,7 @@ const flowers = [
     "type": "birthday",
     "color": "red",
     "price": 5800,
-    "previewImage": `markup/img/items/${getRandomArrayElement(POSTERS)}`,
+    "previewImage": `markup/img/content/items/${getRandomArrayElement(POSTERS)}`,
     "authorPhoto": "Christie Kim"
   },
   {
@@ -33,7 +33,7 @@ const flowers = [
     "type": "birthday",
     "color": "red",
     "price": 5800,
-    'previewImage': `markup/img/items/${getRandomArrayElement(POSTERS)}`,
+    'previewImage': `markup/img/content/items/${getRandomArrayElement(POSTERS)}`,
     "authorPhoto": "Christie Kim"
   }
 ]
@@ -52,7 +52,6 @@ export default class FlowersModel extends Observable {
   }
 
   getBouquet (ids) {
-    console.log(this.#flowers)
     return this.#flowers.filter((bouquet) => ids.includes(bouquet.id));
   }
 

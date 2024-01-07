@@ -8,6 +8,8 @@ import FilterColorListView from '../view/filter-color-list-view.js';
 import FilterReasonListView from '../view/filter-reason-list-view.js';
 import HeroListView from '../view/hero-list-view.js';
 import MissionListView from '../view/mission-list-view.js';
+import SliderImageView from '../view/modal-slider-image.js';
+import PopupView from '../view/popup-view.js';
 import ShowMoreBtnView from '../view/show-more-btn-view.js';
 import CataloguePresenter from './catalogue-presenter.js';
 
@@ -28,13 +30,15 @@ export default class Presenter {
   #catalogueView = new CatalogueView()
   #catalogueContainer = new CatalogueContainerView;
   #catalogueList = new CatalogueListView();
-  #modalAnchor = null;
+  #modalProduct = null;
+  #popupComponent = null;
+  #sliderComponent = null;
 
-  constructor({container, catalogueModel, flowersModel, modalAnchor}) {
+  constructor({container, catalogueModel, flowersModel, modalProduct}) {
     this.#container = container;
     this.#catalogueModel = catalogueModel;
     this.#flowersModel = flowersModel;
-    this.#modalAnchor = modalAnchor;
+    this.#modalProduct = modalProduct;
 
 
 
@@ -50,8 +54,9 @@ export default class Presenter {
   #renderCatalogue (flowers) {
     const flowersPresenter = new CataloguePresenter({
       flowersContainer: this.#catalogueList.element,
-      modalAnchor: this.#modalAnchor,
+      modalProduct: this.#modalProduct,
       model: this.catalogue,
+      onClick: this.#handleModeChange
     });
     flowersPresenter.init(flowers, this.#flowersModel);
     this.#flowersPresenter.set(flowers.id, flowersPresenter);
@@ -64,14 +69,27 @@ export default class Presenter {
 
   }
 
+  #renderPopupList () {
+    this.#sliderComponent = new SliderImageView({
+      flowers: this.catalogue
+    })
+    render(this.#sliderComponent, this.#modalProduct);
+
+    this.#popupComponent = new PopupView({
+      flowers: this.catalogue,
+    })
+
+    render(this.#popupComponent, this.#modalProduct);
+  }
+
   #renderMainList () {
     render(this.#heroList, this.#container)
     render(this.#missionList, this.#container)
     render(this.#advantagesList, this.#container)
     render(this.#filterReasonList, this.#container)
     render(this.#filterColorList, this.#container)
-
   }
+
 
 
 
@@ -110,6 +128,11 @@ export default class Presenter {
     this.#renderShowMoreBtn()
   }
 
+  #handleModeChange = () => {
+    this.#flowersPresenter.forEach((presenter) => presenter.resetView());
+  };
+
+
   #handleModelEvent = (updateType, data) => {
     switch (updateType) {
       case UpdateType.PATCH:
@@ -128,9 +151,10 @@ export default class Presenter {
 
 
   init (){
-    this.#renderMainList()
+    this.#renderMainList();
     this.#renderCatalogueContainer();
-    this.#renderCatalogueList()
-    this.#renderShowMoreBtn()
+    this.#renderCatalogueList();
+    this.#renderShowMoreBtn();
+    this.#renderPopupList ();
   }
 }

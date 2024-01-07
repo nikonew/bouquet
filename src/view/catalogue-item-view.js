@@ -35,11 +35,11 @@ export default class CatalogueItemView extends AbstractStatefulView{
   #flowers = null;
   #handleClick = null;
 
-  constructor({flowers, onPopupClick}) {
+  constructor({flowers, onClickPopup}) {
     super()
     this._setState(CatalogueItemView.parseFilmToState(flowers))
-    this.#handleClick = onPopupClick;
-    this._restoreHandlers()
+    this.#handleClick = onClickPopup;
+    this._restoreHandlers();
 
   }
 
@@ -49,15 +49,15 @@ export default class CatalogueItemView extends AbstractStatefulView{
 
 
   _restoreHandlers() {
-      this.#handlePopupClick();
+    this.element
+      .addEventListener('click', this.#editClickHandler);
   }
 
-  #handlePopupClick() {
-    this.element.addEventListener('click', (evt) => {
-      evt.preventDefault();
-      this.#handleClick(this._state);
-    });
-  }
+  #editClickHandler = (evt) => {
+    evt.preventDefault();
+    this.#handleClick();
+  };
+
 
   static parseFilmToState (flowers){
     return {...flowers,
