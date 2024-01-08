@@ -1,9 +1,8 @@
-import {remove, render, RenderPosition, replace} from '../framework/render.js';
+import {remove, render, replace} from '../framework/render.js';
 import {modals} from '../modals/init-modals.js';
 import {isEscapeKey} from '../util.js';
 import CatalogueItemView from '../view/catalogue-item-view.js';
-import SliderImageView from '../view/modal-slider-image.js';
-import PopupView from '../view/popup-view.js';
+
 
 const Mode = {
   DEFAULT: 'DEFAULT',
@@ -58,7 +57,7 @@ export default class CataloguePresenter {
   }
 
   #replaceFormToCard() {
-    document.querySelector(".modal-product")
+    document.querySelector(".catalogue__item")
       document.addEventListener("click", () => modals.open("popup-data-attr"));
     document.removeEventListener('keydown', this.#escKeyDownHandler);
     this.#handleModeChange();
