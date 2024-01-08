@@ -3,6 +3,12 @@ import Observable from '../framework/observable.js';
 const POSTERS = [
   'item-delicate-irises.png',
   'item-delicate-irises@2x.png',
+  'item-white-clouds@2x.png',
+  'item-white-clouds.png',
+  'item-summer-mood@2x.png',
+  'item-summer-mood.png',
+  'item-delicate-irises.webp',
+  'item-delicate-irises@2x.webp'
 ];
 
 export const getRandomInteger = (a, b) => {
@@ -23,7 +29,7 @@ const flowers = [
     "type": "birthday",
     "color": "red",
     "price": 5800,
-    "previewImage": `markup/img/content/items/${getRandomArrayElement(POSTERS)}`,
+    "previewImage": `img/content/items/${getRandomArrayElement(POSTERS)}`,
     "authorPhoto": "Christie Kim"
   },
   {
@@ -33,7 +39,7 @@ const flowers = [
     "type": "birthday",
     "color": "red",
     "price": 5800,
-    'previewImage': `markup/img/content/items/${getRandomArrayElement(POSTERS)}`,
+    'previewImage': `img/content/items/${getRandomArrayElement(POSTERS)}`,
     "authorPhoto": "Christie Kim"
   }
 ]

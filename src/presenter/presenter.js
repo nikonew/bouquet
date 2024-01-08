@@ -74,7 +74,6 @@ export default class Presenter {
       flowers: this.catalogue
     })
     render(this.#sliderComponent, this.#modalProduct);
-
     this.#popupComponent = new PopupView({
       flowers: this.catalogue,
     })
@@ -156,5 +155,6 @@ export default class Presenter {
     this.#renderCatalogueList();
     this.#renderShowMoreBtn();
     this.#renderPopupList ();
+
   }
 }

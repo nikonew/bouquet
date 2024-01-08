@@ -1,28 +1,31 @@
 import AbstractView from '../framework/view/abstract-view.js';
 
 function createSliderTemplate (flowers) {
-  const{previewImage, authorPhoto} = flowers;
   return `
-  <div class="image-slider swiper modal-product__slider">
+${flowers.map((element) => {
+    const{previewImage, authorPhoto} = element;
+    return (`
+          <div class="image-slider swiper modal-product__slider">
               <div class="image-slides-list swiper-wrapper">
                 <div class="image-slides-list__item swiper-slide">
                   <div class="image-slide">
                     <picture>
-                      <source type="image/webp" srcset="img/slides/slide-01.webp, img/slides/slide-01@2x.webp 2x"><img src=${previewImage} srcset="img/slides/slide-01@2x.jpg 2x" width="1274" height="1789" alt="">
-                    </picture><span class="image-author image-slide__author">Автор  фотографии:  «${authorPhoto}»</span>
+                      <source type="image/webp" srcset="${previewImage}"><img src=${previewImage} srcset="${previewImage} 2x" width="1274" height="1789" alt="">
+                    </picture>
+                    <span class="image-author image-slide__author">Автор  фотографии:  «${authorPhoto}»</span>
                   </div>
                 </div>
                 <div class="image-slides-list__item swiper-slide">
                   <div class="image-slide">
                     <picture>
-                      <source type="image/webp" srcset="img/slides/slide-02.webp, img/slides/slide-02@2x.webp 2x"><img src="img/slides/slide-02.jpg" srcset="img/slides/slide-02@2x.jpg 2x" width="1274" height="1789" alt="">
+                      <source type="image/webp" srcset="${previewImage}"><img src="${previewImage}" srcset="${previewImage}" width="1274" height="1789" alt="">
                     </picture>
                   </div>
                 </div>
                 <div class="image-slides-list__item swiper-slide">
                   <div class="image-slide">
                     <picture>
-                      <source type="image/webp" srcset="img/slides/slide-03.webp, img/slides/slide-03@2x.webp 2x"><img src="img/slides/slide-03.jpg" srcset="img/slides/slide-03@2x.jpg 2x" width="1274" height="1789" alt="">
+                      <source type="image/webp" srcset="${previewImage}, ${previewImage}"><img src="${previewImage}" srcset="${previewImage}" width="1274" height="1789" alt="">
                     </picture>
                   </div>
                 </div>
@@ -37,7 +40,8 @@ function createSliderTemplate (flowers) {
                   <use xlink:href="#icon-round-button"></use>
                 </svg>
               </button>
-            </div>`
+            </div>`)}).join('')}
+`
 }
 
 export default class SliderImageView extends AbstractView {
